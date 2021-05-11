@@ -1,28 +1,40 @@
-﻿using DataAccess.Concrete.Repositories;
+﻿using Business.Abstract;
+using DataAccess.Abstract;
 using Entities.Concrete;
 using System.Collections.Generic;
 
 namespace Business.Concrete
 {
-    public class CategoryManager
+    public class CategoryManager : ICategoryService
     {
-        GenericRepository<Category> repo = new GenericRepository<Category>();
+        ICategoryDal _categoryDal;
 
-        public List<Category> GetAll()
+        public CategoryManager (ICategoryDal categoryDal)
         {
-            return repo.List();
+            _categoryDal = categoryDal;
         }
-        public void CategoryAddBL(Category p)
+
+        public void CategoryAdd(Category category)
         {
-            if (p.CategoryName == "" || p.CategoryName.Length <= 3 ||
-                p.CategoryDescription == "" || p.CategoryName.Length >= 51)
-            {
-                // hata
-            }
-            else
-            {
-                repo.Insert(p);
-            }
+            _categoryDal.Insert(category);
         }
+
+        public List<Category> GetList()
+        {
+            //generic repository newlemeden erişim sağladım.
+            return _categoryDal.List();
+        }
+        //public void CategoryAddBL(Category p)
+        //{
+        //    if(p.CategoryName=="" || p.CategoryStatus==false ||
+        //        p.CategoryName.Length <= 2)
+        //    {
+
+        //    }
+        //    else
+        //    {
+        //        _categoryDal.Insert(p);
+        //    }
+        //}
     }
 }
