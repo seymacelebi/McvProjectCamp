@@ -22,7 +22,7 @@ Birinci Sertifika görevi tamamlandı. <br/>
 * Mevcut Github Repoları güncellenecek
 *  Aşağıdaki 5 sorgu "istatistik" isminde bir controller içine yazılacak.
 *  İstatistik sayfasının ekran görüntüsü "istatistik view klasörü" içinde bir ekran alıntısı olarak Github reposu içine eklenecek. 
-* Ödevleri yaptıktan sonra 2/4 formunu doldurmayı unutmayın.
+
 
 
 
