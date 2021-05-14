@@ -1,0 +1,73 @@
+﻿@using Entities.Concrete
+@model List<Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<h2>İstatistikler</h2>
+
+
+<br />
+
+    <div class="col-md-6">
+        <div class="info-box">
+            <span class="info-box-icon bg-gradient-indigo"><i class="far fa-envelope"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">1) Toplam Kategori Sayısı</span>
+                <span class="info-box-number">@ViewBag.toplamKategori</span>
+            </div>
+
+        </div>
+        ek
+    </div>
+    <div class="col-md-6">
+        <div class="info-box">
+            <span class="info-box-icon bg-warning"><i class="far fa-envelope"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">2) Yazılım Kategorisine Ait Başlık Sayısı</span>
+                <span class="info-box-number">@ViewBag.value2</span>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="col-md-6">
+        <div class="info-box">
+            <span class="info-box-icon bg-danger"><i class="far fa-envelope"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">3) İçinde "A/a" Harfi Olan Yazarlar</span>
+                <span class="info-box-number">@ViewBag.value3</span>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="col-md-6">
+        <div class="info-box">
+            <span class="info-box-icon bg-success"><i class="far fa-envelope"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">4) En Çok Başlığa Sahip Kategori</span>
+                <span class="info-box-number">@ViewBag.value4</span>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="col-md-6">
+        <div class="info-box">
+            <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">5) Kategori Tablosu True-False Farkı</span>
+                <span class="info-box-number">@ViewBag.value5</span>
+            </div>
+
+        </div>
+
+    </div>
+
