@@ -30,7 +30,8 @@ namespace McvPrpjectKampi.Controllers
             ViewBag.value4 = value4;
 
 
-            var value5 = context.Categories.Where(n => n.CategoryStatus == true).Count() - context.Categories.Where(n => n.CategoryStatus == false).Count();
+            var value5 = context.Categories.Where(n => n.CategoryStatus == true)
+                .Count() - context.Categories.Where(n => n.CategoryStatus == false).Count();
             ViewBag.value5 = value5;
             return View();
         }
