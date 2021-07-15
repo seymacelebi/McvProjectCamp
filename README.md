@@ -5,6 +5,8 @@
 
 >İstatistik bilgilerinin "View" klasörüne gitmek için [Buraya Tıklayın](https://github.com/seymacelebi/McvProjectCamp/tree/master/McvPrpjectKampi/Views/Statistic)<br/>
 >İstatistik bilgilerinin "Controllerına" gitmek için [Buraya Tıklayın](https://github.com/seymacelebi/McvProjectCamp/blob/master/McvPrpjectKampi/Controllers/StatisticController.cs)
+>Yetenek sayfasına  gitmek için [Buraya Tıklayın] 
+(https://github.com/seymacelebi/McvProjectCamp/blob/master/McvPrpjectKampi/SS/ss.png)
 
 
 ---
