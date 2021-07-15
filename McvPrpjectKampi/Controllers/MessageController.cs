@@ -1,6 +1,8 @@
 ﻿using Business.Concrete;
+using Business.ValidationRules;
 using DataAccess.EntityFramework;
 using Entities.Concrete;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +13,9 @@ namespace McvPrpjectKampi.Controllers
 {
     public class MessageController : Controller
     {
+
         MessageManager messageManager = new MessageManager(new EfMessageDal());
-      //  MessageValidator messageValidator = new MessageValidator();
+       MessageValidator messageValidator = new MessageValidator();
 
         // GET: Messages
         public ActionResult Inbox()
@@ -33,7 +36,22 @@ namespace McvPrpjectKampi.Controllers
         [HttpPost]
         public ActionResult NewMessage(Message p)
         {
+            ValidationResult validationResult = messageValidator.Validate(p);
+            if (validationResult.IsValid)
+            {
+                p.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                messageManager.Add(p);
+                return RedirectToAction("Sendbox");
+            }
+            else
+            {
+                foreach (var item in validationResult.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
             return View();
+      
         }
         public ActionResult GetInboxMessageDetails(int id)
         {

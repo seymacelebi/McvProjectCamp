@@ -51,7 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IAbilityDal.cs" />
     <Compile Include="Abstract\IAboutDal.cs" />
+    <Compile Include="Abstract\IAdminDal.cs" />
+    <Compile Include="Abstract\IAdminRoleDal.cs" />
     <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
@@ -59,17 +62,22 @@
     <Compile Include="Abstract\IImageFileDal.cs" />
     <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Abstract\ITalentDal.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\CategoryRepository.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
+    <Compile Include="EntityFramework\EfAbilityDal.cs" />
     <Compile Include="EntityFramework\EfAboutDal.cs" />
+    <Compile Include="EntityFramework\EfAdminDal.cs" />
+    <Compile Include="EntityFramework\EfAdminRoleDal.cs" />
     <Compile Include="EntityFramework\EfCategoryDal.cs" />
     <Compile Include="EntityFramework\EfContactDal.cs" />
     <Compile Include="EntityFramework\EfContentDal.cs" />
     <Compile Include="EntityFramework\EfHeadingDal.cs" />
     <Compile Include="EntityFramework\EfImageFileDal.cs" />
     <Compile Include="EntityFramework\EfMessageDal.cs" />
+    <Compile Include="EntityFramework\EfTalentDal.cs" />
     <Compile Include="EntityFramework\EfWriterDal.cs" />
     <Compile Include="Migrations\202104222320430_mig1.cs" />
     <Compile Include="Migrations\202104222320430_mig1.designer.cs">
@@ -114,6 +122,22 @@
     <Compile Include="Migrations\202107131351155_mig_admin_table.cs" />
     <Compile Include="Migrations\202107131351155_mig_admin_table.designer.cs">
       <DependentUpon>202107131351155_mig_admin_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107152007384_mig_add_aboutstatus.cs" />
+    <Compile Include="Migrations\202107152007384_mig_add_aboutstatus.designer.cs">
+      <DependentUpon>202107152007384_mig_add_aboutstatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107152030234_mig_adminrole.cs" />
+    <Compile Include="Migrations\202107152030234_mig_adminrole.designer.cs">
+      <DependentUpon>202107152030234_mig_adminrole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107152032448_mig_add_ability.cs" />
+    <Compile Include="Migrations\202107152032448_mig_add_ability.designer.cs">
+      <DependentUpon>202107152032448_mig_add_ability.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107152229220_mig_addtalent.cs" />
+    <Compile Include="Migrations\202107152229220_mig_addtalent.designer.cs">
+      <DependentUpon>202107152229220_mig_addtalent.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -161,6 +185,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107131351155_mig_admin_table.resx">
       <DependentUpon>202107131351155_mig_admin_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107152007384_mig_add_aboutstatus.resx">
+      <DependentUpon>202107152007384_mig_add_aboutstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107152030234_mig_adminrole.resx">
+      <DependentUpon>202107152030234_mig_adminrole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107152032448_mig_add_ability.resx">
+      <DependentUpon>202107152032448_mig_add_ability.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107152229220_mig_addtalent.resx">
+      <DependentUpon>202107152229220_mig_addtalent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
