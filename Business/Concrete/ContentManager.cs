@@ -38,6 +38,11 @@ namespace Business.Concrete
             return _contentDal.List(h => h.HeadingId == id);
         }
 
+        public List<Content> GetListByWriter()
+        {
+            return _contentDal.List(x => x.WriterId == 5);
+        }
+
         public void Update(Content content)
         {
             throw new System.NotImplementedException();

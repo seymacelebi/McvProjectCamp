@@ -77,7 +77,6 @@ namespace McvPrpjectKampi.Controllers
             headingValue.HeadingStatus = false;
             headingManager.HeadingDelete(headingValue);
             return RedirectToAction("Index");
-
         }
 
 
