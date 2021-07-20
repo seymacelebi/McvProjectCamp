@@ -7,19 +7,47 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
+using Business.ValidationRules;
+using FluentValidation.Results;
 
 namespace McvPrpjectKampi.Controllers
 {
     public class WriterPanelController : Controller
     {
+        WriterManager writerManager = new WriterManager(new EfWriterDal());
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
         HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
         Context c = new Context();
-   
+
+
+        [HttpGet]
         public ActionResult WriterProfile()
         {
-            return View();
+            string p = (string)Session["WriterMail"];
+            ViewBag.d = p;
+            int id = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterId).FirstOrDefault();
+            var writerValue = writerManager.GetById(id);
+            return View(writerValue);
         }
+        [HttpPost]
+        public ActionResult WriterProfile(Writer writer)
+        {
+            WriterValidator writerValidator = new WriterValidator();
+            ValidationResult results = writerValidator.Validate(writer);
+            if (results.IsValid)
+            {
+                writerManager.WriterUpdate(writer);
+                return RedirectToAction("AllHeading", "WriterPanel");
+            }
+            foreach (var item in results.Errors)
+            {
+                ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+            }
+            return RedirectToAction("AllHeading", "WriterPanel");
+        }
+
         public ActionResult MyHeading(string p)
         {
             p = (string)Session["WriterMail"];
@@ -78,9 +106,9 @@ namespace McvPrpjectKampi.Controllers
             headingManager.HeadingDelete(headingValue);
             return RedirectToAction("MyHeading");
         }
-        public ActionResult AllHeading()
+        public ActionResult AllHeading(int sayfa = 1)
         {
-            var headings = headingManager.GetAll();
+            var headings = headingManager.GetAll().ToPagedList(sayfa, 4);
             return View(headings);
         }
 

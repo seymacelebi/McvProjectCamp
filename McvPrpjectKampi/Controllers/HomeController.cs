@@ -34,5 +34,15 @@ namespace McvPrpjectKampi.Controllers
         {
             return View();
         }
+        [AllowAnonymous]
+        public ActionResult HomePage()
+        {
+            return View();
+        }
+
+        public ActionResult SweetAlert()
+        {
+            return View();
+        }
     }
 }

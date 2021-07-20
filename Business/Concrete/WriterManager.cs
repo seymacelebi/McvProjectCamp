@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using Business.Abstract;
+﻿using Business.Abstract;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using System.Collections.Generic;
 
 namespace Business.Concrete
 {
@@ -16,9 +16,8 @@ namespace Business.Concrete
 
         public Writer GetById(int id)
         {
-            return _writerDal.Get(x => x.WriterId==id);
-        }
-
+            return _writerDal.Get(x => x.WriterId == id);
+        }     
         public List<Writer> GetList()
         {
             return _writerDal.List();

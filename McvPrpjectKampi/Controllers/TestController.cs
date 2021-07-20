@@ -13,5 +13,14 @@ namespace McvPrpjectKampi.Controllers
         {
             return View();
         }
+        public ActionResult Test2()
+        {
+            return View();
+        }
+        public ActionResult Test3()
+        {
+            return View();
+
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿using DataAccess.Concrete;
+﻿using Business.Concrete;
+using DataAccess.Concrete;
+using DataAccess.EntityFramework;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -13,7 +15,9 @@ namespace McvPrpjectKampi.Controllers
     [AllowAnonymous]
     public class LoginController : Controller
     {
-        // GET: Login
+        WriterLoginManager writerLoginManager = new WriterLoginManager(new EfWriterDal());
+        AdminManager adminManager = new AdminManager(new EfAdminDal());
+        //WriterManager writerManager = new WriterManager(new EfWriterDal());
         [HttpGet]
         public ActionResult Index()
         {
@@ -43,8 +47,9 @@ namespace McvPrpjectKampi.Controllers
         [HttpPost]
         public ActionResult WriterLogin(Writer p)
         {
-            Context c = new Context();
-            var writeruserinfo = c.Writers.FirstOrDefault(x => x.WriterMail == p.WriterMail && x.WriterPassword == p.WriterPassword);
+            //Context c = new Context();
+            //var writeruserinfo = c.Writers.FirstOrDefault(x => x.WriterMail == p.WriterMail && x.WriterPassword == p.WriterPassword);
+            var writeruserinfo = writerLoginManager.GetWriter(p.WriterMail, p.WriterPassword);
             if (writeruserinfo != null)
             {
                 FormsAuthentication.SetAuthCookie(writeruserinfo.WriterMail, false);

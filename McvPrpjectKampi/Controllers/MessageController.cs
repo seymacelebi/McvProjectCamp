@@ -20,12 +20,14 @@ namespace McvPrpjectKampi.Controllers
         // GET: Messages
         public ActionResult Inbox()
         {
-            var messageList = messageManager.GetListInbox();
+            string mail = (string)Session["AdminUserName"];
+            var messageList = messageManager.GetListInbox(mail);
             return View(messageList);
         }
         public ActionResult Sendbox()
         {
-            var messageList = messageManager.GetListSendbox();
+            string mail = (string)Session["AdminUserName"];
+            var messageList = messageManager.GetListSendbox(mail);
             return View(messageList);
         }
         [HttpGet]

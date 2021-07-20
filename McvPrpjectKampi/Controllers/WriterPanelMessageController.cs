@@ -19,12 +19,14 @@ namespace McvPrpjectKampi.Controllers
 
         public ActionResult Inbox()
         {
-            var messageList = messageManager.GetListInbox();
+            string mail = (string)Session["WriterMail"];
+            var messageList = messageManager.GetListInbox(mail);
             return View(messageList);
         }
         public ActionResult Sendbox()
         {
-            var messageList = messageManager.GetListSendbox();
+            string mail = (string)Session["WriterMail"];
+            var messageList = messageManager.GetListSendbox(mail);
             return View(messageList);
         }
         public PartialViewResult MessageListMenu()
@@ -49,10 +51,11 @@ namespace McvPrpjectKampi.Controllers
         [HttpPost]
         public ActionResult NewMessage(Message p)
         {
+            string sender = (string)Session["WriterMail"];
             ValidationResult validationResult = messageValidator.Validate(p);
             if (validationResult.IsValid)
             {
-                p.SenderMail = "asli.kaya@gmail.com";
+                p.SenderMail = sender;
                 p.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                 messageManager.Add(p);
                 return RedirectToAction("Sendbox");
