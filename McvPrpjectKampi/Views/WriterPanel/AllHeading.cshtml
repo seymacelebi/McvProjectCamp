@@ -1,10 +1,11 @@
 ﻿@using Entities.Concrete
 @model List<Heading>
 @{
-    ViewBag.Title = "MyHeading";
+    ViewBag.Title = "AllHeading";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
 
+<h2>AllHeading</h2>
 
 @{string color = ""; }
 <!DOCTYPE html>
@@ -49,7 +50,7 @@
                             <th style="width: 30%">
                                 Oluşturan Yazar
                             </th>
-                    
+
                             <th style="width: 8%" class="text-center">
                                 Kategori
                             </th>
@@ -102,26 +103,22 @@
                                         </li>
                                     </ul>
                                 </td>
-                               
+
                                 <td class="project-state">
                                     <span class="@color">@item.Category.CategoryName</span>
                                 </td>
                                 <td class="project-actions text-right">
-                                    <a class="btn btn-primary btn-sm" href="/Content/ContentByHeading/@item.HeadingId">
+                                    <a class="btn btn-primary btn-sm" href="/Default/Headings/@item.HeadingId">
                                         <i class="fas fa-folder">
                                         </i>
                                         Yazılar
                                     </a>
-                                    <a class="btn btn-info btn-sm" href="/WriterPanel/EditHeading/@item.HeadingId">
+                                    <a class="btn btn-info btn-sm" href="/WriterPanelContent/AddContent/@item.HeadingId">
                                         <i class="fas fa-pencil-alt">
                                         </i>
-                                        Düzenle
+                                     Bu başlığa yaz
                                     </a>
-                                    <a class="btn btn-danger btn-sm" href="/WriterPanel/DeleteHeading/@item.HeadingId">
-                                        <i class="fas fa-trash">
-                                        </i>
-                                        Sil
-                                    </a>
+                                 
                                 </td>
                             </tr>
                         }
@@ -134,6 +131,5 @@
     </section>
 </body>
 </html>
-<a href="/WriterPanel/NewHeading/" class="btn btn-info">Yeni başlık giriş</a>
 
 

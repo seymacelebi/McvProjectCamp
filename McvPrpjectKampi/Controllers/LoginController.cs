@@ -9,6 +9,8 @@ using System.Web.Security;
 
 namespace McvPrpjectKampi.Controllers
 {
+
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         // GET: Login
@@ -52,8 +54,13 @@ namespace McvPrpjectKampi.Controllers
             else
             {
                 return RedirectToAction("WriterLogin");
-            }
-           
+            }          
+        }
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("Headings", "Default");
         }
     }
 }

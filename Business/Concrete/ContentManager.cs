@@ -33,14 +33,19 @@ namespace Business.Concrete
             return _contentDal.List();
         }
 
+        public List<Content> GetListByHeadingId(int id)
+        {
+            return _contentDal.List(x => x.HeadingId == id);
+        }
+
         public List<Content> GetListById(int id)
         {
             return _contentDal.List(h => h.HeadingId == id);
         }
 
-        public List<Content> GetListByWriter()
+        public List<Content> GetListByWriter(int id)
         {
-            return _contentDal.List(x => x.WriterId == 5);
+            return _contentDal.List(x => x.WriterId == id);
         }
 
         public void Update(Content content)
