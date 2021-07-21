@@ -14,13 +14,37 @@ namespace McvPrpjectKampi.Controllers
     public class AuthorizationController : Controller
     {
         // GET: Authorization
+       // IAuthService authService = new AuthManager(new AdminManager(new EfAdminDal()), new WriterManager(new EfWriterDal()));
         AdminManager adm = new AdminManager(new EfAdminDal());
         AdminRoleManager admRole = new AdminRoleManager(new EfAdminRoleDal());
+
         public ActionResult Index()
         {
             var adminvalues = adm.GetList();
             return View(adminvalues);
         }
+        //[HttpGet]
+        //public ActionResult AddAdmin()
+        //{
+        //    List<SelectListItem> valueadminrole = (from c in roleManager.GetRoles()
+        //                                           select new SelectListItem
+        //                                           {
+        //                                               Text = c.RoleName,
+        //                                               Value = c.RoleId.ToString()
+
+        //                                           }).ToList();
+
+        //    ViewBag.valueadmin = valueadminrole;
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //public ActionResult AddAdmin(LoginDto loginDto)
+        //{
+        //    authService.Register(loginDto.AdminUserName, loginDto.AdminPassword);
+        //    return RedirectToAction("Index");
+        ////}
+
         [HttpGet]
         public ActionResult NewAdmin()
         {
@@ -62,9 +86,16 @@ namespace McvPrpjectKampi.Controllers
         }
         public ActionResult DeleteAdmin(int id)
         {
-            var value = adm.GetById(id);
-            value.Status = false;
-            adm.AdminUpdate(value);
+            var result = adm.GetById(id);
+            if (result.Status == true)
+            {
+                result.Status = false;
+            }
+            else
+            {
+                result.Status = true;
+            }
+            adm.(result);
             return RedirectToAction("Index");
         }
     }

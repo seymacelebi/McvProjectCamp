@@ -11,6 +11,7 @@ namespace Business.Abstract
     {
         List<Heading> GetAll();
         List<Heading> GetAllByWriter(int id);
+        int GetCountByCategory(int categoryID);
         void HeadingAdd(Heading heading);
         Heading GetById(int id);
        

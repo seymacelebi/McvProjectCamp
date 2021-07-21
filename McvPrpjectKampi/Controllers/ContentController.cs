@@ -17,6 +17,11 @@ namespace McvPrpjectKampi.Controllers
         {
             return View();
         }
+        public ActionResult GetAllContent(string p)
+        {
+            var values = contentManager.GetList(p);
+            return View(values.ToList());
+        }
 
         public ActionResult ContentByHeading(int id)
         {

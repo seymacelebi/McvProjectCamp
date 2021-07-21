@@ -19,5 +19,6 @@ namespace Business.Abstract
         void AdminDelete(Admin admin);
         void AdminUpdate(Admin admin);
         void AdminAdd(AdminForRegisterDto adminregister, string password);
+        //void AdminAdd(Admin admin);
     }
 }

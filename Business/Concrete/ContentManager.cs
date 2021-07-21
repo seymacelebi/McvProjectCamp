@@ -28,9 +28,18 @@ namespace Business.Concrete
             throw new System.NotImplementedException();
         }
 
-        public List<Content> GetList()
+        public int GetnumberByWriter(int id)
         {
-            return _contentDal.List();
+            return _contentDal.List(x => x.WriterId == id).Count;
+        }
+
+        public List<Content> GetList(string p)
+        {
+            if (p == null)
+            {
+                return _contentDal.List();
+            }
+            return _contentDal.List(x => x.ContentValue.Contains(p));
         }
 
         public List<Content> GetListByHeadingId(int id)

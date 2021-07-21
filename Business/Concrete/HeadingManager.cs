@@ -29,6 +29,10 @@ namespace Business.Concrete
             return _headingDal.Get(h => h.HeadingId == id);
         }
 
+        public int GetCountByCategory(int categoryID)
+        {
+            return _headingDal.List(x => x.CategoryId == categoryID).Count;
+        }
         public void HeadingAdd(Heading heading)
         {
             _headingDal.Insert(heading);
