@@ -266,6 +266,9 @@
     <Content Include="AdminLTE-3.0.4\dist\img\credit\visa.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\default-150x150.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\icons.png" />
+    <Content Include="AdminLTE-3.0.4\dist\img\man.png" />
+    <Content Include="AdminLTE-3.0.4\dist\img\man2.png" />
+    <Content Include="AdminLTE-3.0.4\dist\img\man3.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\photo1.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\photo2.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\photo3.jpg" />
@@ -283,6 +286,9 @@
     <Content Include="AdminLTE-3.0.4\dist\img\user6-128x128.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\user7-128x128.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\user8-128x128.jpg" />
+    <Content Include="AdminLTE-3.0.4\dist\img\w2.png" />
+    <Content Include="AdminLTE-3.0.4\dist\img\w3.jpg" />
+    <Content Include="AdminLTE-3.0.4\dist\img\woman.png" />
     <Content Include="AdminLTE-3.0.4\dist\js\adminlte.js" />
     <Content Include="AdminLTE-3.0.4\dist\js\adminlte.min.js" />
     <Content Include="AdminLTE-3.0.4\dist\js\demo.js" />
@@ -373,7 +379,13 @@
     <Content Include="AdminLTE-3.0.4\docs\_layouts\home.html" />
     <Content Include="AdminLTE-3.0.4\docs\_layouts\page.html" />
     <Content Include="AdminLTE-3.0.4\docs\_layouts\post.html" />
+    <Content Include="AdminLTE-3.0.4\imagefiles\1764.jpeg" />
+    <Content Include="AdminLTE-3.0.4\imagefiles\5157.jpg" />
+    <Content Include="AdminLTE-3.0.4\imagefiles\637128604553104030HA.jpg" />
+    <Content Include="AdminLTE-3.0.4\imagefiles\ii.jpg" />
+    <Content Include="AdminLTE-3.0.4\imagefiles\madridoverview.png" />
     <Content Include="AdminLTE-3.0.4\imagefiles\paris.jpg" />
+    <Content Include="AdminLTE-3.0.4\imagefiles\roma-1-scaled.jpg" />
     <Content Include="AdminLTE-3.0.4\imagefiles\ıstanbul.jpg" />
     <Content Include="AdminLTE-3.0.4\index.html" />
     <Content Include="AdminLTE-3.0.4\index2.html" />

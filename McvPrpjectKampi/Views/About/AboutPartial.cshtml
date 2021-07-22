@@ -1,27 +1,58 @@
-﻿<button class="btn btn-primary" data-toggle="modal" data-target="Modal1">
-    Yeni Hakkımızda yazı girişi
-</button>
-<div class="modal" id="Modal1">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h2 class="modal-title">Hakkımızda Metin Girişi</h2>
-        </div>
-        <form method="post" action="/About/AddAbout">
-            <div class="modal-body">
-                <label>Hakkımda Metin 1</label>
-                <input type="text" name="AboutDetails1" class="form-control" />
-                <br />
-                <label>Hakkımda Metin 2</label>
-                <input type="text" name="AboutDetails1" class="form-control" />
-                <br />
-                <label>Hakkımda Görsel 1</label>
-                <input type="text" name="AboutImages1" class="form-control" />
-                <br />
-                <label>Hakkımda Görsel 2</label>
-                <input type="text" name="AboutImages2" class="form-control" />
-                <br />
-                <button class="btn btn-info"></button>
+﻿@*<button class="btn btn-primary" data-toggle="modal" data-target="Modal1">
+        Yeni Hakkımızda yazı girişi
+    </button>
+    <div class="modal" id="Modal1">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Hakkımızda Metin Girişi</h2>
             </div>
-        </form>
+            <form method="post" action="/About/AddAbout">
+                <div class="modal-body">
+                    <label>Hakkımda Metin 1</label>
+                    <input type="text" name="AboutDetails1" class="form-control" />
+                    <br />
+                    <label>Hakkımda Metin 2</label>
+                    <input type="text" name="AboutDetails1" class="form-control" />
+                    <br />
+                    <label>Hakkımda Görsel 1</label>
+                    <input type="text" name="AboutImages1" class="form-control" />
+                    <br />
+                    <label>Hakkımda Görsel 2</label>
+                    <input type="text" name="AboutImages2" class="form-control" />
+                    <br />
+                    <button class="btn btn-info"></button>
+                </div>
+            </form>
+        </div>
+    </div>*@
+<button class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
+    Yeni Hakkımızda Yazı Girişi
+</button>
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Yeni Hakkımızda Metin Girişi</h2>
+            </div>
+            <form method="post" action="/About/AddAbout">
+                <div class="modal-body">
+                    <label>Hakkımda Metin 1</label>
+                    <input type="text" name="AboutDetails1" class="form-control" />
+                    <br />
+                    <label>Hakkımda Metin 2</label>
+                    <input type="text" name="AboutDetails2" class="form-control" />
+                    <br />
+                    <label>Hakkımda Görsel 1</label>
+                    <input type="text" name="AboutImage1" class="form-control" />
+                    <br />
+                    <label>Hakkımda Görsel 2</label>
+                    <input type="text" name="AboutImage2" class="form-control" />
+                    <br />
+                    <button class="btn btn-primary">Kaydet</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
+<script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>

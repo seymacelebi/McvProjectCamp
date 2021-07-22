@@ -7,26 +7,75 @@
 
 
 
-<h2>Hakkımda Veri Girişi</h2>
+@{ string status = "";}
+@{ string statusButton = "";}
+<br>
+<h2>Hakkımızda Veri Listesi</h2>
 <table class="table table-bordered">
     <tr>
         <th>Id</th>
-        <th>Hakkımda Başlığı</th>
-        <th>Aktif  Yap</th>
-        <th>Pasif  Yap</th>
+        <th>Hakkımda</th>
+        <th>Aktif veya Pasif İşlemi</th>
     </tr>
     @foreach (var item in Model)
     {
-    <tr>
-        <td>@item.AboutId</td>
-        <td>Başlık</td>
-        <td><a href="#" class="btn btn-warning">Aktif Yap</a></td>
-        <td><a href="#" class="btn btn-warning">Pasif  Yap</a></td>
-    </tr>
-
+        if (item.AboutStatus == true)
+        {
+            status = "Pasif Yap";
+        }
+        if (item.AboutStatus == false)
+        {
+            status = "Aktif Yap";
+        }
+        if (item.AboutStatus == true)
+        {
+            statusButton = "btn btn-danger";
+        }
+        if (item.AboutStatus == false)
+        {
+            statusButton = "btn btn-warning";
+        }
+        <tr>
+            <th>@item.AboutId</th>
+            <td>Başlık</td>
+            <td><a href="/About/StatusActiveAndPassive/@item.AboutId" class="@statusButton">@status</a></td>
+        </tr>
     }
 </table>
-
-  
-
 @Html.Action("AboutPartial", "About")
+
+<script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+@*<h2>Hakkımda Veri Girişi</h2>*@
+@*<table class="table table-bordered">
+        <tr>
+            <th>Id</th>
+            <th>Hakkımda Başlığı</th>
+            <th>Aktif  Yap</th>
+            <th>Pasif  Yap</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.AboutId</td>
+                <td>Başlık</td>
+                <td><a href="#" class="btn btn-warning">Aktif Yap</a></td>
+                <td><a href="#" class="btn btn-warning">Pasif  Yap</a></td>
+            </tr>
+
+        }
+    </table>
+
+
+
+    @Html.Action("AboutPartial", "About")*@
+

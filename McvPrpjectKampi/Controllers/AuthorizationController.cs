@@ -95,7 +95,7 @@ namespace McvPrpjectKampi.Controllers
             {
                 result.Status = true;
             }
-            adm.(result);
+            adm.AdminDelete(result);
             return RedirectToAction("Index");
         }
     }
