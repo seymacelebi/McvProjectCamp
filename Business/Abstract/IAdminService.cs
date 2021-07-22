@@ -10,15 +10,20 @@ namespace Business.Abstract
 {
     public interface IAdminService
     {
-        List<Admin> GetList();
-      
+        //List<Admin> GetList();
+
+        //Admin GetById(int id);
+        //Admin GetByName(String name);
+
+        //void ChangeRole(int id, String role);
+        //void AdminDelete(Admin admin);
+        //void AdminUpdate(Admin admin);
+        //void AdminAdd(AdminForRegisterDto adminregister, string password);
+        ////void AdminAdd(Admin admin);
+        void Add(Admin admin);
+        void Update(Admin admin);
+        void Delete(Admin admin);
+        List<Admin> GetAdmins();
         Admin GetById(int id);
-        Admin GetByName(String name);
-  
-        void ChangeRole(int id, String role);
-        void AdminDelete(Admin admin);
-        void AdminUpdate(Admin admin);
-        void AdminAdd(AdminForRegisterDto adminregister, string password);
-        //void AdminAdd(Admin admin);
     }
 }

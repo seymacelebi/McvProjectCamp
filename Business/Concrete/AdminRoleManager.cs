@@ -19,7 +19,7 @@ namespace Business.Concrete
         }
         public List<AdminRole> GetList()
         {
-            return _adminRole.List(); ;
+            return _adminRole.List(); 
         }
     }
 }

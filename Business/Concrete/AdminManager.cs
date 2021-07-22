@@ -1,8 +1,6 @@
 ﻿using Business.Abstract;
-using Business.Security.Hashing;
 using DataAccess.Abstract;
 using Entities.Concrete;
-using Entities.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +11,7 @@ namespace Business.Concrete
 {
     public class AdminManager : IAdminService
     {
+
         IAdminDal _adminDal;
 
         public AdminManager(IAdminDal adminDal)
@@ -20,57 +19,29 @@ namespace Business.Concrete
             _adminDal = adminDal;
         }
 
-        public void AdminAdd(AdminForRegisterDto adminregister, string password)
+        public void Add(Admin admin)
         {
-            byte[] passwordHash, passwordSalt, mailHash, mailSalt;
-            HashingHelper.CreateMailHash(adminregister.Mail, out mailHash, out mailSalt);
-            HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
-            var admin = new Admin
-            {
-                AdminRole = adminregister.AdminRole,
-                PasswordHash = passwordHash,
-                PasswordSalt = passwordSalt,
-                AdminUserNameHash = mailHash,
-                AdminUserNameSalt = mailSalt,
-                AdminUserName = adminregister.UserName,
-                Status = true,
-                Mail = adminregister.Mail
-
-            };
             _adminDal.Insert(admin);
         }
 
-        public void AdminDelete(Admin admin)
+        public void Delete(Admin admin)
         {
             _adminDal.Delete(admin);
         }
 
-        public void AdminUpdate(Admin admin)
+        public List<Admin> GetAdmins()
         {
-            _adminDal.Update(admin);
-        }
-
-        public void ChangeRole(int id, string role)
-        {
-            var value = _adminDal.Get(x => x.AdminId == id);
-            value.AdminRole = role;
-            _adminDal.Update(value);
+            return _adminDal.List();
         }
 
         public Admin GetById(int id)
         {
-            return _adminDal.Get(x => x.AdminId == id);
+            return _adminDal.Get(a => a.AdminId == id);
         }
 
-
-        public Admin GetByName(string name)
+        public void Update(Admin admin)
         {
-            return _adminDal.Get(x => x.AdminUserName == name);
-        }
-
-        public List<Admin> GetList()
-        {
-            return _adminDal.List(x => x.Status == true);
+            _adminDal.Update(admin);
         }
     }
 }

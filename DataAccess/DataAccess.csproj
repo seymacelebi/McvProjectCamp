@@ -139,6 +139,14 @@
     <Compile Include="Migrations\202107152229220_mig_addtalent.designer.cs">
       <DependentUpon>202107152229220_mig_addtalent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107221550400_mig-admin.cs" />
+    <Compile Include="Migrations\202107221550400_mig-admin.designer.cs">
+      <DependentUpon>202107221550400_mig-admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107221750184_mig-writerhashler.cs" />
+    <Compile Include="Migrations\202107221750184_mig-writerhashler.designer.cs">
+      <DependentUpon>202107221750184_mig-writerhashler.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -197,6 +205,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107152229220_mig_addtalent.resx">
       <DependentUpon>202107152229220_mig_addtalent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107221550400_mig-admin.resx">
+      <DependentUpon>202107221550400_mig-admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107221750184_mig-writerhashler.resx">
+      <DependentUpon>202107221750184_mig-writerhashler.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

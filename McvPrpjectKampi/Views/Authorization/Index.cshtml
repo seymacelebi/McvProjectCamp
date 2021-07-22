@@ -5,28 +5,64 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
+@{
+    string statusColor = "";
+    string buttonStatusColor = "";
+    string checkStatus = "";
+}
+
+
 <br />
 <table class="table table-bordered">
+
     <tr>
         <th>#</th>
-        <th>Kullanıcı Mail</th>
+        <th>Kullanıcı Adı</th>
         <th>Yetki</th>
-        <th>Status</th>
+        <th>Durum</th>
         <th>Pasif Yap</th>
         <th>Yetkisini Değiştir</th>
     </tr>
+
     @foreach (var item in Model)
     {
         <tr>
-            <td>@item.AdminId</td>
+            <th>@item.AdminId</th>
             <td>@item.AdminUserName</td>
             <td>@item.AdminRole</td>
-            <td>Aktif</td>
-            <td><a href="/Authorization/DeleteCategory/@item.AdminId" class="btn btn-danger">Pasif Yap</a></td>
-            <td><a href="/Authorization/EditAdmin/@item.AdminId" class="btn btn-warning">Yetkisini Değiştir</a></td>
+            <td>
+                @switch (item.Status)
+                {
+                    case true:
+                        statusColor = "badge badge-success";
+                        buttonStatusColor = "btn btn-danger";
+                        break;
+                    case false:
+                        statusColor = "badge badge-danger";
+                        buttonStatusColor = "btn btn-success";
+                        break;
+                }
+                <span class="@statusColor">@item.Status</span>
+            </td>
+            <td>
+                <a href="/Authorization/DeleteAdmin/@item.AdminId" class="@buttonStatusColor btn-sm">
+                    @if (item.Status == false)
+                    {
+
+                        checkStatus = "Aktif Yap";
+                    }
+                    else
+                    {
+
+                        checkStatus = "Pasif Yap";
+                    }
+                    @checkStatus
+                </a>
+            </td>
+            <td><a href="/Authorization/UpdateAdmin/@item.AdminId" class="btn btn-warning">Yetkisini Değiştir</a></td>
         </tr>
     }
+
+
 </table>
 <a href="/Authorization/AddAdmin" class="btn btn-info">Yeni Admin Tanımla</a>
-

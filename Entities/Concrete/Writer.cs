@@ -30,6 +30,9 @@ namespace Entities.Concrete
 
         public bool WriterStatus { get; set; }
 
+        public byte[] WriterPasswordHash { get; set; }
+        public byte[] WriterPasswordSalt { get; set; }
+
         public ICollection<Heading> Headings { get; set; }
         public ICollection<Content> Contents { get; set; }
     }

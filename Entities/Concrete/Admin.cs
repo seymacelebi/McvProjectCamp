@@ -12,6 +12,8 @@ namespace Entities.Concrete
         [Key]
         public int AdminId { get; set; }
 
+        public byte[] AdminName { get; set; }
+
         [StringLength(50)]
         public string AdminUserName { get; set; }
 
@@ -23,7 +25,8 @@ namespace Entities.Concrete
         [StringLength(1)]
         public string AdminRole { get; set; }
 
-        public bool Status { get; set; }
+        public bool  Status { get; set; }
+
         public byte[] PasswordSalt { get; set; }
 
         public byte[] PasswordHash { get; set; }
